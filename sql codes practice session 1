@@ -1,0 +1,38 @@
+CREATE TABLE employees (
+emp_id INT (10) NOT NULL,
+first_name VARCHAR (20),
+last_name VARCHAR (20) NOT NULL,
+salary INT (10) NOT NULL,
+PRIMARY KEY (emp_id)
+);
+
+insert into employees
+(emp_id, first_name, last_name, salary) VALUES 
+(1001, 'utkarshroc', 'guptacefc', 1000000);
+
+insert into employees 
+(emp_id, first_name, last_name, salary) VALUES
+(1004, 'akshatjazz', 'jainrfqr', 2000000);
+
+insert into employees
+(emp_id, first_name, last_name, salary) VALUES
+(1002, 'Anmolcfecv', 'khullarrfq', 5000000);
+
+insert into employees
+(emp_id, first_name, last_name, salary) values
+(1003, 'sammydeff', 'deccanrf', 200000);
+
+insert into employees 
+(emp_id, first_name, last_name, salary) values
+(1005, 'denverrrrr', 'hamiltonrfwrf', 100000);
+
+update employees
+set last_name='khullarnnnnnnnn' where emp_id = 1003;
+
+update employees
+set salary = 1000 where emp_id = 1005;
+
+/* only deletes rows 1002 and 1004 not 1003*/  
+Delete from employees where emp_id in (1002, 1004);
+
+select * from employees;
