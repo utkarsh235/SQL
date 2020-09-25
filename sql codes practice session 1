@@ -35,4 +35,36 @@ set salary = 1000 where emp_id = 1005;
 /* only deletes rows 1002 and 1004 not 1003*/  
 Delete from employees where emp_id in (1002, 1004);
 
+delete from employees where salary = 1000;
+*/ 
+
+/* WHERE Clause*/
+select first_name from employees where salary = 1000;
+
+/* AND Clause */
+select * from employees where salary=1000000 and first_name = 'utkarshroc';
+
+/* OR Clause */
+select * from employees where salary=100000 or first_name='sammydeff';
+
+/* NOT Clause */
+select * from employees where salary != 1000000;
+
+/* Like operator */ 
+select * from employees where first_name like 'A%';
+
+/* IN operator */ 
+select * from employees where salary in (1000, 2000000);
+
+select distinct(first_name) from employees;
+select distinct(first_name) from employees where salary = 1000000;
+
+select avg(salary) from employees;
+select min(salary) from employees;
+select max(salary) from employees;
+select count(*) from employees;
+select sum(salary) from employees;
+
 select * from employees;
+
+
