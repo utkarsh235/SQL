@@ -1,0 +1,17 @@
+create table department(
+dept_id int(10),
+name varchar(20),
+salary int(10)
+);
+
+insert into department
+(dept_id, name, salary) values 
+(101, 'utkarsh', 10000000);
+insert into department values (102, 'anmol', 100000000), (101, 'pranav', 20000000), (102, 'rankesh', 100000), (105, 'ramesh', 500000), (101, 'rehan', 500000), (103, 'awsi', 20000);
+select * from department;
+
+/* display max salary of each dept */
+select dept_id, max(salary) from department group by dept_id;
+
+/* display no. of employees in each dept */ 
+select count(dept_id), dept_id from department group by dept_id;
