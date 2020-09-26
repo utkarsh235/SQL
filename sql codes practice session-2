@@ -15,3 +15,29 @@ select dept_id, max(salary) from department group by dept_id;
 
 /* display no. of employees in each dept */ 
 select count(dept_id), dept_id from department group by dept_id;
+
+
+
+
+
+create table employees(
+emp_id int(10) not null,
+name varchar(20),
+salary int(10),
+primary key (emp_id)
+);
+
+select * from employees;
+
+
+insert into employees
+(emp_id, name, salary) values 
+(10431, 'utkarsh', 10000000);
+insert into employees values (105462, 'anmol', 100000000), (34103, 'pranav', 20000000), (456104, 'rankesh', 100000), (10523, 'ramesh', 500000), (1065, 'rehan', 500000), (42107, 'awsi', 20000);
+select * from employees;
+
+/* display all even no. of rows */
+select * from employees where emp_id % 2 = 0;
+
+/* display all odd no. of rows */
+select * from employees where emp_id % 2 != 0;
