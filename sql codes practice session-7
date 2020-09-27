@@ -1,0 +1,38 @@
+create table employees(
+emp_id int(10) not null,
+name varchar(20),
+salary int(10),
+primary key (emp_id)
+);
+
+create table department(
+dept_id int(10) not null,
+name varchar(20),
+salary int(10)
+);
+
+insert into department values (101, 'utkarsh', 10000000), (102, 'anmol', 100000000), (103, 'pranav', 20000000), (104, 'anil', 10000000), (101, 'emily', 500000), (102, 'rehan', 500000), (103, 'awsi', 20000000);;
+select * from department;
+
+
+insert into employees
+(emp_id, name, salary) values 
+(10431, 'utkarsh', 10000000);
+insert into employees values (105462, 'anmol', 100000000), (34103, 'pranav', 20000000), (456104, 'anil', 10000000), (10523, 'emily', 500000), (1065, 'rehan', 500000), (42107, 'awsi', 20000000);
+select * from employees;
+
+/* Display names of employees whose name length is equal to 4 */
+select * from employees where name like '____';
+
+/* Display the name of the persons whose second letter is m */ 
+select * from employees where name like '_m%';
+
+/* Display the names of the employees whose fourth letter is l */
+select * from employees where name like '___l%';
+
+/* Display names of emplyees whose name contains a 'n' followed by a 'l' */  
+select name from employees where name like '%n%l%';
+
+select name, salary from employees
+union
+select name, salary from department;
