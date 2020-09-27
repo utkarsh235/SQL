@@ -1,0 +1,66 @@
+create table worker(
+worker_id int(10) not null,
+first_name varchar(20),
+last_name varchar(20),
+salary int(10),
+joining_date date,
+department varchar(20),
+primary key (worker_id)
+);
+
+create table bonus(
+worker_ref_id int(10) not null,
+bonus_amount int(10),
+bouns_date date
+);
+
+create table title(
+worker_ref_id int(10) not null,
+worker_title varchar(20),
+affected_from date 
+);
+
+insert into worker values (001, 'Monika', 'Arora', 100000, '2014-02-20 09.00.00', 'HR'),
+                          (002, 'Niharika', 'Verma', 80000, '2014-06-11 09:00:00', 'Admin'),
+                          (003, 'Vishal', 'Singhal', 300000, '14-02-20 09.00.00', 'HR'),
+                          (004, 'Amitabh', 'Singh', 500000, '14-02-20 09.00.00', 'Admin'),
+                          (005, 'Vivek', 'Bhati', 500000, '14-06-11 09.00.00', 'Admin'),
+                          (006, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account'),
+                          (007, 'Satish', 'Kumar', 75000, '14-01-20 09.00.00', 'Account'),
+                          (008, 'Geetika', 'Chauhan', 90000, '14-04-11 09.00.00', 'Admin');
+select * from worker;
+
+
+insert into bonus values (001, 5000, '16-02-20'),
+		                 (002, 3000, '16-06-11'),
+                		 (003, 4000, '16-02-20'),
+                		 (001, 4500, '16-02-20'),
+                		 (002, 3500, '16-06-11');
+                		 
+                		 
+insert into title values (001, 'Manager', '2016-02-20 00:00:00'),
+                         (002, 'Executive', '2016-06-11 00:00:00'),
+                         (008, 'Executive', '2016-06-11 00:00:00'),
+                         (005, 'Manager', '2016-06-11 00:00:00'),
+                         (004, 'Asst. Manager', '2016-06-11 00:00:00'),
+                         (007, 'Executive', '2016-06-11 00:00:00'),
+                         (006, 'Lead', '2016-06-11 00:00:00'),
+                         (003, 'Lead', '2016-06-11 00:00:00');
+select * from bonus;
+select * from title;
+
+
+/* Que20: Write an SQL query to print details of the Workers who have joined in Feb’2014 */
+select * from worker where joining_date like '2014-02-%';
+
+/* Que21: Write an SQL query to fetch the count of employees working in the department ‘Admin’ */
+select count(department), department from worker group by department;
+
+/* Que22: Write an SQL query to fetch worker names with salaries >= 50000 and <= 100000 */ 
+select first_name from worker where salary between 50000 and 100000;
+
+/* Que23: Write an SQL query to fetch the no. of workers for each department in the descending order */
+select count(department), department from worker group by department order by count(department) desc;
+
+/* Que24: Write an SQL query to print details of the Workers who are also Managers */
+select * from worker where worker_id in (select worker_ref_id from title where worker_title in ('Manager', 'Asst. Manager'));
